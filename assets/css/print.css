@@ -1,0 +1,17 @@
+@media print {
+
+    .print{
+        display: none;
+    }
+    .grid-item{
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+    .hero_area{
+        display: none;
+    }
+    .card-bill{
+        display: block;
+    }
+  
+  }
