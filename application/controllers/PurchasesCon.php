@@ -36,7 +36,12 @@ class PurchasesCon extends CI_Controller
 			// echo $coust;
 			$row = $this->PurchasesModel->get_bill($value);
 			if ($row['Quantity'] > 0) {
-				$clint = $this->ClintModel->clint($coust);
+				if($coust != 10000007){
+					$clint = $this->ClintModel->clint($coust);
+				}else{
+					$clint = array("value"=>0);
+				}
+
 				if ($type == 1) {
 					$where = array("Quantity" => ($clint['Quantity'] + $row['After_trans']), "value" => ($clint['value'] + $row['value_clint']));
 				} elseif ($type == 2) {
@@ -60,11 +65,20 @@ class PurchasesCon extends CI_Controller
 	{
 		$row = $this->PurchasesModel->get_bill($value);
 		if ($row['status'] == 0) {
-			$clint = $this->ClintModel->clint($row['client']);
+			// $clint = $this->ClintModel->clint($row['client']);
+			if($row['client'] != 10000007){
+				$clint = $this->ClintModel->clint($row['client']);
+			}else{
+				$clint = array("value"=>0);
+			}
+
 			if ($row['type_price'] == 1) {
 				$where = array("Quantity" => ($clint['Quantity'] - $row['After_trans']), "value" => ($clint['value'] - $row['value_clint']));
 			} elseif ($row['type_price'] == 2) {
+				if($clint['value'] != 0)
 				$where = array("value" => ($clint['value'] - $row['value_clint']));
+				else
+				$where = array("value" => $row['value_clint']);
 			}
 			$this->PurchasesModel->edit_bill($value, $row['client'], $where);
 			$this->session->set_flashdata(["message" => "<p class='alert alert-success'>تتم فتح الفاتورة للتعديل</p>"]);

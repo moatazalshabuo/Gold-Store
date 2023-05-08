@@ -117,9 +117,12 @@ class PurchasesModel extends CI_Model
 		$this->db->where('id_bill', $id);
 		$this->db->update("purchases");
 		if ($cust != "10000007") {
+			
 			$this->db->set($where);
 			$this->db->where("client_id", $cust);
 			$this->db->update("client");
+		}else{
+			$this->Cash->remove_from_cash($where['value']);
 		}
 	}
 	public function edit_bill($id, $cust, $where)
@@ -127,8 +130,12 @@ class PurchasesModel extends CI_Model
 		$this->db->set(array('status' => 1));
 		$this->db->where('id_bill', $id);
 		$this->db->update("purchases");
+		if ($cust != "10000007") {
 		$this->db->set($where);
 		$this->db->where("client_id", $cust);
 		$this->db->update("client");
+		}else{
+			$this->Cash->add_to_cash($where['value']);
+		}
 	}
 }

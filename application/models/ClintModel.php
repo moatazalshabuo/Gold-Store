@@ -153,19 +153,19 @@ class ClintModel extends CI_Model
 			$this->db->where('cr_at >=', $from);
 			$this->db->where('cr_at <=', $to);
 		}
-		$this->db->where("type", 1);
+		// $this->db->where("type);
 		$data['totel_export1'] = $this->db->get("exchange_receipt")->row_array()["totel"];
 
-		$this->db->select("sum(totel_value) as totel");
+		$this->db->select("sum(value_clint) as totel");
 
 		if (!empty($from) && !empty($to)) {
 			$this->db->where('cr_at >=', $from);
 			$this->db->where('cr_at <=', $to);
 		}
 
-		$this->db->where("type", 2);
+		$this->db->where(["client"=>10000007,"status"=>0]);
 
-		$data['totel_export2'] = $this->db->get("exchange_receipt")->row_array()["totel"];
+		$data['totel_export2'] = $this->db->get("purchases")->row_array()["totel"];
 
 		$data['totel'] = $data['totel_export1'] + $data['totel_export2'];
 
@@ -182,6 +182,7 @@ class ClintModel extends CI_Model
 			$this->db->where('cr_at >=', $from);
 			$this->db->where('cr_at <=', $to);
 		}
+		$this->db->where("status",0);
 
 		$data['totel_sales'] = $this->db->get("sales_bill")->row_array()['totle'];
 
@@ -191,6 +192,7 @@ class ClintModel extends CI_Model
 			$this->db->where('cr_at >=', $from);
 			$this->db->where('cr_at <=', $to);
 		}
+		
 
 		$data['totel_deposit'] = $this->db->get("deposit")->row_array()['totle'];
 

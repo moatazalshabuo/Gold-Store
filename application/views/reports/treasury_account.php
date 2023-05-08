@@ -69,7 +69,7 @@
                                                                                 endif; ?>">
                     </div>
                     <div class="col-md-6">
-                        <label>مصروفات اخرى</label>
+                        <label>المشتريات (كسر)</label>
                         <input type="text" class="form-control" disabled value="<?php echo ($export['totel_export2']) ?>">
                     </div>
                     <div class="col-md-12">

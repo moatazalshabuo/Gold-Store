@@ -141,7 +141,7 @@ class Reports extends CI_Controller
         $impot = $this->ClintModel->getimport($from, $to);
         $old_export = $this->ClintModel->getoldexport($from, $to);
         $old_impot = $this->ClintModel->getoldimport($from, $to);
-
+        // print_r($impot
         $this->load->view("include/header");
         $this->load->view("reports/treasury_account", [
             "from" => $from,
