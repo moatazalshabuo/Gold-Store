@@ -142,6 +142,7 @@ class Reports extends CI_Controller
         $old_export = $this->ClintModel->getoldexport($from, $to);
         $old_impot = $this->ClintModel->getoldimport($from, $to);
         // print_r($impot
+		$cash = $this->db->get('cash_stock')->row_array()['value_total'];
         $this->load->view("include/header");
         $this->load->view("reports/treasury_account", [
             "from" => $from,
@@ -152,6 +153,7 @@ class Reports extends CI_Controller
             "old_im" => $old_impot,
             "new_ex" => $this->ClintModel->getnewexport($from, $to),
             "new_im" => $this->ClintModel->getnewimport($from, $to),
+			"cash"=>$cash
         ]);
         $this->load->view("include/footer");
     }

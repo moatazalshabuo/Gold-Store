@@ -106,6 +106,10 @@
                 <label>النقدي في الخزينة</label>
                 <input type="text" class="form-control" disabled value="<?php echo number_format($import['totel'] - $export["totel"], 2) ?>">
             </div>
+			<div class="grid-item">
+                <label>النقدي اجمالي</label>
+                <input type="text" class="form-control" disabled value="<?php echo number_format($cash, 2) ?>">
+            </div>
         </div>
     </div>
     <h5>الكسر</h5>
