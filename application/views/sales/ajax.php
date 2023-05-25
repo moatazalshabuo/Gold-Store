@@ -145,10 +145,7 @@
 		}
 		// console.log($(this).val())
 	});
-	$(".print").click(function() {
-		// $(".card-bill").printThis()
-		location.replace("<?php echo base_url() ?>SalesCon/print/"+$(this).attr('id'))
-	})
+	
 	// const btn=document.querySelector(".print");
 
     // function printORsave(){

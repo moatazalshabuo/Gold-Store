@@ -2,12 +2,7 @@
     
     <div class="grid-contaner-second">
       <div class="text-center">
-       <button class="mb-5 mt-2 link-btn"><a href="فاتورة مبيعات.html">فاتورة مبيعات</a></button><br>
-       <button class="mb-5 link-btn"><a href="فاتورة مشتريات.html">فاتورة مشتريات</a></button><br>
-       <button class="mb-5 link-btn"><a href="تعديل بيانات الصنف.html">تعديل بيانات الصنف</a></button><br>
-       <button class="mb-5 link-btn"><a href="فاتورة جرد اصناف.html">فاتورة جرد اصناف</a></button><br>
-       <button class="mb-5 link-btn"><a href="كشف حساب الخزينة.html">كشف حساب الخزينة</a></button><br>
-       <button class="link-btn"><a href="كشف حساب عميل.html">كشف حساب عميل</a></button><br>
+  
       </div>
       <div>
         <div class="item_section layout_padding2">
